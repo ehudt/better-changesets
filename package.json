@@ -1,5 +1,5 @@
 {
-  "name": "@changesets/repository",
+  "name": "better-changesets",
   "version": "1.0.0",
   "private": true,
   "description": "A tool to help manage the versioning and changelogs for open source packages",
@@ -65,6 +65,7 @@
   "preconstruct": {
     "packages": [
       "packages/*",
+      "!packages/action",
       "scripts/*"
     ],
     "exports": {

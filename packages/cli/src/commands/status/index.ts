@@ -1,7 +1,7 @@
 import pc from "picocolors";
 import fs from "fs-extra";
 import path from "path";
-import getReleasePlan from "@changesets/get-release-plan";
+import { getReleasePlan } from "@changesets/release-core";
 import { error, info, log, warn } from "@changesets/logger";
 import {
   ComprehensiveRelease,

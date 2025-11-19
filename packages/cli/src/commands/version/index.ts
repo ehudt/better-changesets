@@ -3,9 +3,9 @@ import path from "path";
 import * as git from "@changesets/git";
 import { log, warn, error } from "@changesets/logger";
 import { Config } from "@changesets/types";
-import applyReleasePlan from "@changesets/apply-release-plan";
+import { applyReleasePlan } from "@changesets/release-core";
 import readChangesets from "@changesets/read";
-import assembleReleasePlan from "@changesets/assemble-release-plan";
+import { assembleReleasePlan } from "@changesets/release-core";
 import { getPackages } from "@manypkg/get-packages";
 
 import { removeEmptyFolders } from "../../utils/v1-legacy/removeFolders";
@@ -73,11 +73,11 @@ export default async function version(
     preState,
     options.snapshot
       ? {
-          tag: options.snapshot === true ? undefined : options.snapshot,
-          commit: config.snapshot.prereleaseTemplate?.includes("{commit}")
-            ? await getCurrentCommitId({ cwd })
-            : undefined,
-        }
+        tag: options.snapshot === true ? undefined : options.snapshot,
+        commit: config.snapshot.prereleaseTemplate?.includes("{commit}")
+          ? await getCurrentCommitId({ cwd })
+          : undefined,
+      }
       : undefined
   );
 
